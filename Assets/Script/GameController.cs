@@ -31,6 +31,10 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void gameOver(){
+		if (score > GameObject.Find ("DataAgentObject").GetComponent<DataAgent> ().highScore) {
+			GameObject.Find("DataAgentObject").GetComponent<DataAgent>().setHighScore(score);
+			PlayerPrefs.SetInt("HighScore",score);
+		}
 		returnToTitle ();
 	}
 }

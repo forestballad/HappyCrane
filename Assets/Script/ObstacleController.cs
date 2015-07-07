@@ -23,8 +23,5 @@ public class ObstacleController : MonoBehaviour {
 			scored = true;
 			transform.Find("lantern").GetComponent<SpriteRenderer>().sprite = litLantern;
 		}
-		if (transform.position.x < -4.5f) {
-			Destroy(this.gameObject);
-		}
 	}
 }
