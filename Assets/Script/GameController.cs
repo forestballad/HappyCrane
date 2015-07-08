@@ -4,11 +4,16 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public GameObject obstacle;
+	public GameObject IchigoHitofu;
+	public GameObject UguisuMaru;
+	public GameObject HiranoToushirou;
 	public float invokeFrequency = 2f;
+	public int obstacleNum;
 	public int score;
 
 	// Use this for initialization
 	void Start () {
+		score = 0;
 		InvokeRepeating ("createObstacle", 0, invokeFrequency);
 	}
 	
@@ -18,7 +23,20 @@ public class GameController : MonoBehaviour {
 	}
 
 	void createObstacle(){
-		Instantiate (obstacle);
+		obstacleNum++;
+		GameObject newObstacle = Instantiate (obstacle);
+		newObstacle.GetComponent<ObstacleController> ().obstacleNum = obstacleNum;
+		float GyobutsuHeight = newObstacle.transform.position.y - 1f;
+		if (obstacleNum == 17) {
+			GameObject Gyobutsu = Instantiate(IchigoHitofu);
+			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
+		} else if (obstacleNum == 27) {
+			GameObject Gyobutsu = Instantiate(UguisuMaru);
+			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
+		} else if (obstacleNum == 37) {
+			GameObject Gyobutsu = Instantiate(HiranoToushirou);
+			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
+		}
 	}
 
 	public void addScore(){

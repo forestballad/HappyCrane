@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class PlayerControl : MonoBehaviour {
+public class PlayerController : MonoBehaviour {
 	public float positionX = -2.5f;
 	public Vector2 jumpForce = new Vector2 (0, 300);
 	public Rigidbody2D rgb;
@@ -10,6 +10,14 @@ public class PlayerControl : MonoBehaviour {
 	public Sprite spriteUp;
 	public Sprite spriteDown;
 
+	public Sprite[] spriteUpCollection = new Sprite[4];
+	public Sprite[] spriteDownCollection = new Sprite[4];
+
+
+	void Awake(){
+		spriteUp = spriteUpCollection [0];
+		spriteDown = spriteDownCollection [0];
+	}
 
 	// Use this for initialization
 	void Start () {
@@ -48,5 +56,15 @@ public class PlayerControl : MonoBehaviour {
 		gameObject.AddComponent<PolygonCollider2D>();
 	}
 
+	public void swtichSprite(int spriteType){
+		spriteUp = spriteUpCollection [spriteType];
+		spriteDown = spriteDownCollection [spriteType];
+		if (rgb.velocity.y >= 0) {
+			GetComponent<SpriteRenderer> ().sprite = spriteUp;
+		} else {
+			GetComponent<SpriteRenderer>().sprite = spriteDown;
+		}
+		StartCoroutine(ResetCollider());
+	}
 
 }

@@ -1,8 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class DestroyOutOfScreen : MonoBehaviour {
-	public float destroyOnX;
+public class GyobutsuController : MonoBehaviour {
+	public float speed;
 
 	// Use this for initialization
 	void Start () {
@@ -11,8 +11,6 @@ public class DestroyOutOfScreen : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (transform.position.x < destroyOnX) {
-			Destroy(this.gameObject);
-		}
+		transform.position = new Vector2 (transform.position.x - speed,transform.position.y );
 	}
 }
