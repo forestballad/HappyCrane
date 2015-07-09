@@ -27,14 +27,14 @@ public class GameController : MonoBehaviour {
 		GameObject newObstacle = Instantiate (obstacle);
 		newObstacle.GetComponent<ObstacleController> ().obstacleNum = obstacleNum;
 		float GyobutsuHeight = newObstacle.transform.position.y - 1f;
-		if (obstacleNum == 17) {
-			GameObject Gyobutsu = Instantiate(IchigoHitofu);
+		if (obstacleNum == 7) {
+			GameObject Gyobutsu = Instantiate(HiranoToushirou);
 			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
-		} else if (obstacleNum == 27) {
+		} else if (obstacleNum == 17) {
 			GameObject Gyobutsu = Instantiate(UguisuMaru);
 			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
-		} else if (obstacleNum == 37) {
-			GameObject Gyobutsu = Instantiate(HiranoToushirou);
+		} else if (obstacleNum == 27) {
+			GameObject Gyobutsu = Instantiate(IchigoHitofu);
 			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
 		}
 	}

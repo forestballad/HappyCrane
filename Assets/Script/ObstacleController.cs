@@ -23,13 +23,13 @@ public class ObstacleController : MonoBehaviour {
 			GameObject.Find("Scripts").GetComponent<GameController>().addScore();
 			scored = true;
 			transform.Find("lantern").GetComponent<SpriteRenderer>().sprite = litLantern;
-			if (obstacleNum == 17){
+			if (obstacleNum == 7){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(1);
 			}
-			else if (obstacleNum == 27){
+			else if (obstacleNum == 17){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(2);
 			}
-			else if (obstacleNum == 37){
+			else if (obstacleNum == 27){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(3);
 			}
 		}

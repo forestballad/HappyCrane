@@ -44,7 +44,7 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnCollisionEnter2D(Collision2D coll) {
-		if (coll.gameObject.tag == "Obstacle") {
+		if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Ground") {
 			GameObject.Find("Scripts").GetComponent<GameController>().gameOver();
 		}		
 	}
