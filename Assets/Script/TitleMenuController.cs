@@ -28,7 +28,8 @@ public class TitleMenuController : MonoBehaviour {
 	}
 
 	IEnumerator loadGameScene(){
-		yield return waitTime;
+		GetComponent<AudioSource>().Play ();
+		yield return new WaitForSeconds(waitTime);
 		Application.LoadLevel ("game");
 	}
 }

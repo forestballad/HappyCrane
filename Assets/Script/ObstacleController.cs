@@ -25,12 +25,15 @@ public class ObstacleController : MonoBehaviour {
 			transform.Find("lantern").GetComponent<SpriteRenderer>().sprite = litLantern;
 			if (obstacleNum == 7){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(1);
+				GetComponent<AudioSource>().Play ();
 			}
 			else if (obstacleNum == 24){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(2);
+				GetComponent<AudioSource>().Play ();
 			}
 			else if (obstacleNum == 41){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(3);
+				GetComponent<AudioSource>().Play ();
 			}
 		}
 	}
