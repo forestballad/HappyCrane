@@ -26,10 +26,10 @@ public class ObstacleController : MonoBehaviour {
 			if (obstacleNum == 7){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(1);
 			}
-			else if (obstacleNum == 17){
+			else if (obstacleNum == 24){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(2);
 			}
-			else if (obstacleNum == 27){
+			else if (obstacleNum == 41){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(3);
 			}
 		}

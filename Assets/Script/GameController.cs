@@ -4,9 +4,10 @@ using System.Collections;
 
 public class GameController : MonoBehaviour {
 	public GameObject obstacle;
-	public GameObject IchigoHitofu;
-	public GameObject UguisuMaru;
 	public GameObject HiranoToushirou;
+	public GameObject UguisuMaru;
+	public GameObject IchigoHitofu;
+	public GameObject Kosetsu;
 	public float invokeFrequency = 2f;
 	public int obstacleNum;
 	public int score;
@@ -28,14 +29,16 @@ public class GameController : MonoBehaviour {
 		newObstacle.GetComponent<ObstacleController> ().obstacleNum = obstacleNum;
 		float GyobutsuHeight = newObstacle.transform.position.y - 1f;
 		if (obstacleNum == 7) {
-			GameObject Gyobutsu = Instantiate(HiranoToushirou);
-			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
-		} else if (obstacleNum == 17) {
-			GameObject Gyobutsu = Instantiate(UguisuMaru);
-			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
-		} else if (obstacleNum == 27) {
-			GameObject Gyobutsu = Instantiate(IchigoHitofu);
-			Gyobutsu.transform.position = new Vector2(newObstacle.transform.position.x,GyobutsuHeight);
+			GameObject Gyobutsu = Instantiate (HiranoToushirou);
+			Gyobutsu.transform.position = new Vector2 (newObstacle.transform.position.x, GyobutsuHeight);
+		} else if (obstacleNum == 24) {
+			GameObject Gyobutsu = Instantiate (UguisuMaru);
+			Gyobutsu.transform.position = new Vector2 (newObstacle.transform.position.x, GyobutsuHeight + 0.2f);
+		} else if (obstacleNum == 41) {
+			GameObject Gyobutsu = Instantiate (IchigoHitofu);
+			Gyobutsu.transform.position = new Vector2 (newObstacle.transform.position.x, GyobutsuHeight);
+		} else if (obstacleNum == 47) {
+			GameObject Gyobutsu = Instantiate (Kosetsu);
 		}
 	}
 

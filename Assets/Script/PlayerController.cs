@@ -27,7 +27,8 @@ public class PlayerController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyUp ("space")) {
+		if (Input.GetKeyDown ("space") || Input.GetMouseButtonDown(0)) {
+			GetComponent<AudioSource>().Play ();
 			rgb.velocity = Vector2.zero;
 			rgb.AddForce (jumpForce);
 		}
@@ -45,7 +46,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Ground") {
-			GameObject.Find("Scripts").GetComponent<GameController>().gameOver();
+			//GameObject.Find("Scripts").GetComponent<GameController>().gameOver();
 		}		
 	}
 	
