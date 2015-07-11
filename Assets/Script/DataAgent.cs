@@ -4,6 +4,7 @@ using System.Collections;
 public class DataAgent : MonoBehaviour {
 	static DataAgent _instance;
 	public int highScore;
+	public bool muteMusic;
 	
 	static public DataAgent instance
 	{
@@ -33,12 +34,22 @@ public class DataAgent : MonoBehaviour {
 		} else {
 			highScore = PlayerPrefs.GetInt ("HighScore");
 		}
+		if (PlayerPrefs.HasKey ("muteMusic")) {
+			muteMusic = (PlayerPrefs.GetInt ("muteMusic") == 0);
+		} else {
+			muteMusic = false;
+		}
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		
 	}
+
+	public void setMute(bool muteOption){
+		muteMusic = muteOption;
+	}
+
 
 	public void setHighScore(int newHighScore){
 		highScore = newHighScore;

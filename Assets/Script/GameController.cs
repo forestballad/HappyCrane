@@ -31,13 +31,13 @@ public class GameController : MonoBehaviour {
 		if (obstacleNum == 7) {
 			GameObject Gyobutsu = Instantiate (HiranoToushirou);
 			Gyobutsu.transform.position = new Vector2 (newObstacle.transform.position.x, GyobutsuHeight);
-		} else if (obstacleNum == 24) {
+		} else if (obstacleNum == 14) {
 			GameObject Gyobutsu = Instantiate (UguisuMaru);
 			Gyobutsu.transform.position = new Vector2 (newObstacle.transform.position.x, GyobutsuHeight + 0.2f);
-		} else if (obstacleNum == 41) {
+		} else if (obstacleNum == 21) {
 			GameObject Gyobutsu = Instantiate (IchigoHitofu);
 			Gyobutsu.transform.position = new Vector2 (newObstacle.transform.position.x, GyobutsuHeight);
-		} else if (obstacleNum == 47) {
+		} else if (obstacleNum == 28) {
 			GameObject Gyobutsu = Instantiate (Kosetsu);
 		}
 	}

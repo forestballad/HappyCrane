@@ -13,6 +13,8 @@ public class PlayerController : MonoBehaviour {
 	public Sprite[] spriteUpCollection = new Sprite[4];
 	public Sprite[] spriteDownCollection = new Sprite[4];
 
+	public bool muteMusic;
+
 
 	void Awake(){
 		spriteUp = spriteUpCollection [0];
@@ -23,12 +25,15 @@ public class PlayerController : MonoBehaviour {
 	void Start () {
 		GetComponent<SpriteRenderer>().sprite = spriteUp;
 		isUp = true;
+		muteMusic = GameObject.Find("DataAgentObject").GetComponent<DataAgent>().muteMusic;
 	}
 	
 	// Update is called once per frame
 	void Update () {
-		if (Input.GetKeyDown ("space") || Input.GetMouseButtonDown(0)) {
-			GetComponent<AudioSource>().Play ();
+		if (Input.GetKeyDown ("space") || Input.GetMouseButtonDown(0) || Input.GetKeyDown(KeyCode.JoystickButton0)) {
+			if (!muteMusic){
+				GetComponent<AudioSource>().Play ();
+			}
 			rgb.velocity = Vector2.zero;
 			rgb.AddForce (jumpForce);
 		}
@@ -46,7 +51,7 @@ public class PlayerController : MonoBehaviour {
 
 	void OnCollisionEnter2D(Collision2D coll) {
 		if (coll.gameObject.tag == "Obstacle" || coll.gameObject.tag == "Ground") {
-			//GameObject.Find("Scripts").GetComponent<GameController>().gameOver();
+			GameObject.Find("Scripts").GetComponent<GameController>().gameOver();
 		}		
 	}
 	

@@ -25,15 +25,21 @@ public class ObstacleController : MonoBehaviour {
 			transform.Find("lantern").GetComponent<SpriteRenderer>().sprite = litLantern;
 			if (obstacleNum == 7){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(1);
-				GetComponent<AudioSource>().Play ();
+				if (!GameObject.Find("DataAgentObject").GetComponent<DataAgent>().muteMusic){
+					GetComponent<AudioSource>().Play ();
+				}
 			}
-			else if (obstacleNum == 24){
+			else if (obstacleNum == 14){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(2);
-				GetComponent<AudioSource>().Play ();
+				if (!GameObject.Find("DataAgentObject").GetComponent<DataAgent>().muteMusic){
+					GetComponent<AudioSource>().Play ();
+				}
 			}
-			else if (obstacleNum == 41){
+			else if (obstacleNum == 21){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(3);
-				GetComponent<AudioSource>().Play ();
+				if (!GameObject.Find("DataAgentObject").GetComponent<DataAgent>().muteMusic){
+					GetComponent<AudioSource>().Play ();
+				}
 			}
 		}
 	}

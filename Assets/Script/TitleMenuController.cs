@@ -4,6 +4,7 @@ using System.Collections;
 
 public class TitleMenuController : MonoBehaviour {
 	public float waitTime;
+	public Sprite pressedButton;
 
 	// Use this for initialization
 	void Start () {
@@ -12,7 +13,11 @@ public class TitleMenuController : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-
+		if (Input.GetKeyDown (KeyCode.JoystickButton7)) {
+			shrinkButton();
+			GameObject.Find("StartButton").GetComponent<Image>().sprite = pressedButton;
+			StartCoroutine("loadGameScene");
+		}
 	}
 
 	public void startGame(){
@@ -28,7 +33,9 @@ public class TitleMenuController : MonoBehaviour {
 	}
 
 	IEnumerator loadGameScene(){
-		GetComponent<AudioSource>().Play ();
+		if (!GameObject.Find ("DataAgentObject").GetComponent<DataAgent> ().muteMusic) {
+			GetComponent<AudioSource> ().Play ();
+		}
 		yield return new WaitForSeconds(waitTime);
 		Application.LoadLevel ("game");
 	}
