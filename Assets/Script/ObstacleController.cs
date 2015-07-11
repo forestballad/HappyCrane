@@ -29,13 +29,13 @@ public class ObstacleController : MonoBehaviour {
 					GetComponent<AudioSource>().Play ();
 				}
 			}
-			else if (obstacleNum == 14){
+			else if (obstacleNum == 24){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(2);
 				if (!GameObject.Find("DataAgentObject").GetComponent<DataAgent>().muteMusic){
 					GetComponent<AudioSource>().Play ();
 				}
 			}
-			else if (obstacleNum == 21){
+			else if (obstacleNum == 41){
 				GameObject.Find("Player").GetComponent<PlayerController>().swtichSprite(3);
 				if (!GameObject.Find("DataAgentObject").GetComponent<DataAgent>().muteMusic){
 					GetComponent<AudioSource>().Play ();
